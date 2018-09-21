@@ -1,0 +1,319 @@
+body{
+	font-family: 'Arial', sans-serif;
+	background-color: #f3f3f3;}
+
+
+
+/*Home page coding*/
+.wrapper{
+	width: 100%;
+	margin: 0 auto;
+	padding: 32px;} /* controle the nav size */
+
+
+
+
+
+
+
+.main_menu a{
+	text-decoration:none;
+	color: #fff;
+	padding: 8px;
+	font-variant: small-caps;}/* style the text in the nav bar */
+
+
+.info{margin-left:20em;
+margin-top: -1em;
+font-size: 1.5em;
+font-variant: small-caps;
+color: #805905; 
+max-width: 30em;
+min-width: 30em;
+}/* controle the texts under menu bar on home page*/
+
+
+.circleLine{
+margin-left: 7%;
+width:61em;
+height: 25em;
+   padding:1%;
+   border: solid #818181 15px;
+      border-radius: 25px;
+} /* controle the size  of the circle on the page*/
+
+.Hs1{
+    margin-left: 14%;
+  width:61em;
+  border-radius: 25px;}
+
+.HsP{
+   margin-left: 45%; 
+}
+
+.HsP2{
+   margin-left: 48%; 
+}
+/* Above is the coding for the home page*/
+
+
+
+
+
+/* Schedule page coding below*/
+
+.info2{margin-left:17em;
+margin-top: -1em;
+font-size: 1.5em;
+font-variant: small-caps;
+color: #805905; 
+max-width: 30em;
+min-width: 30em;
+}/* controle the texts under menu bar on home page*/
+
+
+.squareleLine{
+    display: flex;}
+
+.squareleLine{
+margin-left: 7%;
+width:61em;
+height: 25em;
+padding:1%;
+border: solid #818181 15px;} /* controle the size  of the Sqaure on the page*/
+
+
+.InsidesquareleLine{
+    display: flex;
+    justify-content: space-around;
+margin-left: 5.1%;
+width:25em;
+height: 13em;
+padding:1%;
+    border: solid #818181 2px;}
+
+/* Above is the coding for the Schedule page*/
+
+
+
+
+
+
+
+/* below is the visa page*/
+
+.VisaCircleLine{
+margin-left: 20%;
+width:40em;
+height: 25em;
+   padding:1%;
+   border: solid #818181 15px;
+      border-radius: 25px;
+} /* controle the size  of the circle on the page*/
+		
+.visaf1{display: flex;
+    padding-top: 2%;
+justify-content: center;
+justify-content: space-around}
+
+.texta2{
+    width: 25em;
+      height: 2.5em;
+    margin-top: 7%;
+}
+
+.vp1{
+    border: 1px solid #818181;
+     border-radius: 25px;
+    padding: 2%;
+    height: 1em;
+    width: 2em;
+    margin-right: -40%;
+    font-size: 2em;}
+    
+    
+    .vp2{
+    border: 1px solid #818181;
+     border-radius: 25px;
+    padding: 2%;
+    height: 1em;
+    width: 8em;
+    margin-left: 40%;
+    font-size: 1.2em;
+        background-color: #818181;}
+
+.p3{
+   margin-left: 45%;
+    margin-top: 21%;}
+/* Above is the coding for the  visa page*/
+
+
+
+
+
+/* below is the order page*/
+.VisaOrderLine{
+margin-left: 2%;
+width:66em;
+height: 40em;
+padding:1%;
+border: solid #818181 2px;
+border-radius: 25px;} /* controle the size  of the circle on the page*/
+
+.p4{
+    margin-left: 40%;
+    padding-top: 2%;
+    border: solid #818181 2px;
+    width: 8em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 1.5em;}
+
+.s1{
+margin-left: 25%;}
+
+.curveb{
+border-radius: 25px;}
+/* Above is the coding for the  order page*/
+
+
+
+
+/* below is the payment method page*/
+.p5{
+    margin-left: 40%;
+    padding-top: 2%;
+    width: 8em;
+    padding: 1%;
+    font-size: 1.5em;}
+
+.pmParent{display: flex; 
+padding-top: 2%;
+justify-content: center;
+justify-content: space-around;
+margin-left: 9%;}
+
+.paylin1{
+    margin-right: 14%;}
+
+.paymentcenter{
+    margin-left: -7%;
+    margin-top: 8%;
+    text-align: center;
+}
+
+/* Above is the coding for the  payment method page*/
+
+
+
+
+/* below is the Contact page*/
+
+
+.CantactLine{
+margin-left: 30%;
+width:25em;
+height: 30em;
+padding:1%;
+border: solid #818181 2px;
+border-radius: 25px;} /* controle the size  of the circle on the page*/
+
+
+.sc1{
+margin-left: 1%;
+margin-top: 20%;
+text-align: center;
+}
+
+.sc2{
+  margin-top: 12%;  
+}
+
+
+.sc3{
+    margin-left: 25%;
+     margin-top: 13%;
+    border: solid #818181 2px;
+    width: 8em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 1.5em;}
+
+/* Above is the coding for the Contact page*/
+
+
+
+
+/* below is the thank You page*/
+
+.thanktLine{
+margin-left: 23%;
+width:35em;
+height: 30em;
+padding:1%;
+border: solid #818181 2px;
+border-radius: 25px;} /* controle the size  of the circle on the page*/
+
+
+.fs{
+    width: 20em;
+    margin-left: 19%;}
+
+
+.sct3{
+    margin-left: 29%;
+     margin-top: 13%;
+    border: solid #818181 2px;
+    width: 8em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 1.5em;
+background-color: #818181}
+
+
+/* Above is the coding for the thank You page*/
+
+
+
+
+
+
+/* below is the Account page*/
+
+.accountLine{
+
+margin-left: 5%;
+width:64em;
+height: 30em;
+padding:1%;
+border: solid #818181 2px;
+border-radius: 25px;} /* controle the size  of the circle on the page*/
+
+
+
+.sat3{
+    margin-left: 22%;
+     margin-top: 13%;
+    border: solid #818181 2px;
+    width: 8em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+
+.box1{
+    height: 200px;
+    width: 200px;
+    background-color: #818181;}
+
+.sacc1{display: flex;
+    justify-content: space-around;
+    margin-top: 7%;
+}
+
+
+
+/* Above is the coding for the Account page*/
+
+ 
