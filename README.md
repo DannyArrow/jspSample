@@ -1,6 +1,7 @@
 # jspSample
 Case Study
 
+
 1) link to my user stories
 https://github.com/DannyArrow/case_studydb/blob/master/342506745.edited.txt
 
