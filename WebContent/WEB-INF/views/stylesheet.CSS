@@ -14,7 +14,18 @@ body{
 
 
 
-
+.main_menu{
+	padding: 1em;
+    margin: 0 0 0 35em;
+    background-color: #818181;/* color of the background */
+	list-style-type: none;/* Get rid of the dots in nav */
+	display: flex;
+	justify-content: center;
+	font-size: 1em;
+	max-width:30em;
+	min-width: 28em;
+    border-radius: 25px;
+}
 
 .main_menu a{
 	text-decoration:none;
@@ -312,8 +323,85 @@ border-radius: 25px;} /* controle the size  of the circle on the page*/
     margin-top: 7%;
 }
 
-
-
 /* Above is the coding for the Account page*/
+
+
+
+/* below is the Radio Buttons page*/
+
+
+.RadioButtonsLine{
+margin-left: 18%;
+width:44em;
+height: 25em;
+padding:1%;
+background-color: #818181} /* controle the size  of the Sqaure on the page*/
+
+
+.iRadioButtons2{margin-left:18%;
+margin-top: -1em;
+margin-bottom: -2.9%;
+font-size: 2em;
+font-variant: small-caps;
+color: #805905; 
+max-width: 30em;
+min-width: 30em;
+}/* controle the texts under menu bar on home page*/
+
+.RadioButtonss1{display: flex;
+    justify-content: space-around;
+    margin-top: 7%;}
+
+
+.RadioButtonss3{
+    margin-left: 32%;
+    margin-top: -15%;
+    margin-bottom: 1%;
+    width: 8em;
+    font-size: 1.6em;
+    color: white;
+}
+
+
+.box2{
+    margin-left: -5%;
+    height: 250px;
+    width: 250px;
+    background-color: white;}
+
+
+    
+
+
+.buttonA1{
+    margin-left: 3%;
+     margin-top: 7%;
+    background-color: white;
+    width: 3em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 1em;
+text-align: center;}
+
+
+.buttonA2{
+    margin-left: 80%;
+     margin-top: -10%;
+    background-color: #805905;
+    width: 3em;
+    padding: 1%;
+    border-radius: 25px;
+    font-size: 2em;
+text-align: center;
+ color: white;}  
+/* Above is the coding for the Radio Buttons page*/
+
+.align{
+    text-align: center;
+    padding: 5%;
+}
+
+
+
 
  

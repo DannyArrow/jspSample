@@ -16,11 +16,10 @@
 <style type="text/css">
     .container{
         border: 5px solid black;
-        margin-left: 150px;
-        margin-top:30px;
+        margin: 0 auto;
         border-radius: 10px;
         height: 450px;
-        width: 700px
+        width: 750px
 
     }
     h2{
@@ -32,20 +31,21 @@
 <h2> ADDITIONAL INFORMATION</h2>
 <div class="container">
     <br><br><br>
-
+<form action="instruction" method="post">
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Delivery Pickup</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea name="pickupnotes" placeholder="do you have any special pickup instruction (e.g: doorbell not buzzing, driving direction, pick up back door or front door, pick laundry from doorman?)" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <br>
     <br>
 
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Dropping off</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea  name="dropoffnotes" placeholder="do you have any special drop off instruction (e.g: doorbell not buzzing, driving direction, pick up back door or front door, drop laundry with doorman?)" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <br>
     <button class="button btn btn-primary btn-lg center">Submit</button>
+</form>
 </div>
 </div>
 <%@include file="footer.html"%>

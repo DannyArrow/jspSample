@@ -175,10 +175,10 @@ public class Main {
                order_table.setPersonless_pickup(false);
            }
 
-           System.out.println("Personless pickup Y/N");
+           System.out.println("Personless drop off Y/N");
            String personlessdropoff = scanner.next();
            if (personlessdropoff.equalsIgnoreCase("Y")) {
-               order_table.setPersonless_pickup(true);
+               order_table.setPersonless_dropoff(true);
            } else if (personlessdropoff.equalsIgnoreCase("N")) {
                order_table.setPersonless_pickup(false);
            }

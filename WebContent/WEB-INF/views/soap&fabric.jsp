@@ -79,7 +79,7 @@
 <%@include file="header.html"%>
 <!-- Group of material radios - option 1 -->
 <div class="container ">
-    <form action="soap&fabric", method="post">
+    <form action="soapfabric" method="post">
     <div class="soap ">
         <h3 class="title"> Choose Soap </h3>
         <br>

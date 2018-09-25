@@ -16,10 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import springwork.model.User;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -27,8 +31,9 @@ import java.util.List;
 @SessionAttributes("userkey")
 public class IndexController 
 {
-	Customer customer;
-	Order_table order_table = new Order_table();
+    Customer customer = null;
+	private  Order_table order_table = null;
+	private CustomWashDetails customWashDetails = new CustomWashDetails();
 	@RequestMapping("/")
 	public ModelAndView index() 
 	{
@@ -68,7 +73,25 @@ public class IndexController
 
     @ModelAttribute("softnerlist")
     public List<Softner> softnerList() throws SQLException {
+        System.out.println("hi");
         return new ChooseServiceDAO().softnerList();
+
+    }
+
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    @ModelAttribute("pickupdate")
+    public HashMap<Integer,String> datepickup(){
+        HashMap<Integer,String> datemap = new HashMap<>();
+        for (int i = 1; i < 7; i++) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_YEAR, i);
+            System.out.println(i + ": " + formatter.format(calendar.getTime()));
+            datemap.put(i,formatter.format(calendar.getTime()));
+            calendar = null;
+        }
+
+
+        return datemap;
     }
 
 
@@ -93,6 +116,7 @@ public class IndexController
 	@RequestMapping(value = "/service", method = RequestMethod.POST)
 	public ModelAndView service(@RequestParam("service")String service)
 	{
+	    this.order_table = new Order_table();
 		if(service.equalsIgnoreCase("drycleaning") || service.equalsIgnoreCase("washfold&drycleaning")){
 			order_table.setDrycleaning(true);
 		}else {
@@ -126,55 +150,92 @@ public class IndexController
         return null;
     }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/soapfabric",method = RequestMethod.POST)
+    public ModelAndView soapfabric (@RequestParam("soap") String soap, @RequestParam("softnerr") String softner)
+    {
+      ModelAndView modelAndView = new ModelAndView("customwash");
+        System.out.println(soap + " ffdfd" + softner);
+        customWashDetails.setSoapID(Integer.parseInt(soap));
+        customWashDetails.setSoftnerID(Integer.parseInt(softner));
+
+        return modelAndView;
+    }
 
 
 
+    @RequestMapping(value = "/customwash",method = RequestMethod.POST)
+    public ModelAndView customwash(@RequestParam("color_washtemp") String colortemp, @RequestParam("color_dryer") String color_dryer,
+                                   @RequestParam("white_washtemp") String whitetemp, @RequestParam("white_dryer") String white_dryer)
+    {
+	    customWashDetails.setColortemperature(colortemp);
+	    customWashDetails.setColorheat(color_dryer);
+	    customWashDetails.setWhiteheat(whitetemp);
+	    customWashDetails.setWhiteheat(white_dryer);
+	    ModelAndView modelAndView = new ModelAndView("schedulepickup");
+	    return modelAndView;
 
-	 /*Very important Function*/
-	@ModelAttribute("userkey")
-	public User setUpUserForm()
-	{
-		return new User();
-	}
-	
-	
-	@RequestMapping(value = "/userInfo_confirm", method=RequestMethod.POST)
-	public ModelAndView userInfo_confirm(@ModelAttribute("userkey")User u ) 
-	{	ModelAndView mav = new ModelAndView("UserAccountPage");
-		
-		return mav;
-	}
-	
-	
-	@RequestMapping(value = "/modify", method=RequestMethod.GET)
-	public ModelAndView user_info_modify() 
-	{
-		ModelAndView mav = new ModelAndView("UserAccountModify");
-		return mav;
-	}
-	
-	
-	
-	@RequestMapping(value = "/submit_changes", method=RequestMethod.POST)
-	public String user_info_changes(@ModelAttribute User u, @SessionAttribute("userkey") User ukey ) 
-	{	
-		if (u.getPassword().equals(ukey.getPassword()))
-		{
-			return "redirect:modify";
-		}
-		ukey.setPassword(u.getPassword());
-		return "UserAccountPage";
-	}
+    }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+    HashMap<Integer,String> datemap;
+  @RequestMapping(value = "/pickuptime", method = RequestMethod.POST)
+    public ModelAndView pickup(@RequestParam("date")Integer date,@RequestParam("time") String time){
+      System.out.println("date: " +date + " time:" +time);
+
+      ModelAndView modelAttribute = new ModelAndView("scheduledropoff");
+
+       datemap = new HashMap<>();
+      for (int i = date; i < (date + 5); i++) {
+          Calendar calendar = Calendar.getInstance();
+          calendar.add(Calendar.DAY_OF_YEAR, i);
+          System.out.println(i + ": " + formatter.format(calendar.getTime()));
+          datemap.put(i,formatter.format(calendar.getTime()));
+          calendar = null;
+      }
+
+      modelAttribute.addObject("dropoff",datemap);
+
+      return modelAttribute;
+  }
+
+   @RequestMapping(value = "dropoff", method = RequestMethod.POST)
+   public ModelAndView dropoff(@RequestParam("date")Integer date, @RequestParam("time")String time){
+        ModelAndView modelAndView = new ModelAndView("personless");
+        return modelAndView;
+   }
+
+   @RequestMapping(value = "personless", method = RequestMethod.POST)
+   public ModelAndView personles(@RequestParam("pickup") String pickup){
+
+      ModelAndView modelandview = new ModelAndView("notes");
+
+       System.out.println(pickup);
+
+     if("false pickup and dropoff".equalsIgnoreCase(pickup)){
+         order_table.setPersonless_pickup(false);
+         order_table.setPersonless_dropoff(false);
+     } else if("true pickup and drop off".equalsIgnoreCase(pickup)){
+         order_table.setPersonless_dropoff(true);
+         order_table.setPersonless_pickup(true);
+     }else if("true pickup".equalsIgnoreCase(pickup)){
+         order_table.setPersonless_pickup(true);
+         order_table.setPersonless_dropoff(false);
+     }else if("false pickup".equalsIgnoreCase(pickup)){
+         order_table.setPersonless_pickup(false);
+         order_table.setPersonless_pickup(true);
+     }
+
+       return modelandview;
+
+   }
+
+    @RequestMapping(value = "instruction", method = RequestMethod.POST)
+    public ModelAndView instruction(@RequestParam("pickupnotes") String pickupnotes, @RequestParam("dropoffnotes")String dropoffnotes){
+      ModelAndView modelAndView = new ModelAndView("payment");
+        System.out.println(pickupnotes);
+        order_table.setDropoffnotes(dropoffnotes);
+        order_table.setPickupnotes(pickupnotes);
+        System.out.println(dropoffnotes);
+        return modelAndView;
+    }
 }

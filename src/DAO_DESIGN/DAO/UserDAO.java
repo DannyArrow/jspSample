@@ -67,4 +67,23 @@ public class UserDAO extends OracleConnection implements UserDaoi {
 
         return customer;
     }
+
+    public Customer getusertbyid(int x) throws SQLException {
+        PreparedStatement preparedStatement = getConnection().prepareStatement("select * from customer where customerid = ?");
+        preparedStatement.setInt(1,x);
+        ResultSet rs = preparedStatement.executeQuery(); rs.next();
+        Customer customer = new Customer();
+        customer.setCustomerID(rs.getInt(1));
+        customer.setFirstName(rs.getString(2));
+        customer.setLastname(rs.getString(3));
+        customer.setEmail(rs.getString(4));
+        customer.setPassword(rs.getString(5));
+        customer.setPhone(rs.getLong(6));
+        customer.setStreet(rs.getString(7));
+        customer.setCity(rs.getInt(8));
+        customer.setState(rs.getString(9));
+        customer.setZip(rs.getInt(10));
+        customer.setType_of_building(rs.getString(11));
+        return customer;
+    }
 }
