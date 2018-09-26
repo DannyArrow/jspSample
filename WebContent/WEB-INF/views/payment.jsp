@@ -16,9 +16,8 @@
 
 
 <p class="p5"> Payment Method</p>
-
+    <form action="payment" method="post">
 <section class="pmParent">
-    
     <section>
       
     
@@ -56,6 +55,7 @@
      <p>PLACE ORDER</p>  
     
 </section>
+    </form>
 
 </section>
   <%@include file="footer.html"%>

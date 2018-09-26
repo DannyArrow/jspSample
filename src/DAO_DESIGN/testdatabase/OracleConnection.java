@@ -9,11 +9,18 @@ public class OracleConnection {
         Connection connection = null;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-           // String connect = "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false";
+         //   Class.forName("com.mysql.jdbc.Driver");
 
+           //mysql connector
             connection = DriverManager
                     .getConnection("jdbc:mysql://localhost/new_schema","root","123456");
+
+            //oracle connecter to database for the case study
+//            Connection con = DriverManager.getConnection(
+//                    "jdbc:myDriver:myDatabase",
+//                    username,
+//                    password);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
